@@ -1,4 +1,4 @@
-body{
+body {
   background-image: url("../images/chateauangers.jpg");
   background-attachment: fixed;
   background-position: center;
@@ -6,9 +6,9 @@ body{
   background-size: cover;
 }
 
-.content{
-    background-color: white;
-    padding-top: 1%;
+.content {
+  background-color: white;
+  padding-top: 1%;
 }
 
 .clickable:hover {
@@ -20,7 +20,8 @@ a {
   color: black !important;
   text-decoration: none !important;
 }
+
 a:hover {
-  color:#00A0C6; 
+  color: #00A0C6;
   text-decoration: none !important;
-}
+}/*# sourceMappingURL=index.css.map */
