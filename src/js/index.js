@@ -5,16 +5,18 @@ function returnIndexFromId(id){
 }
 
 // this function is meant to change the view of the article we click 
+// it take a "e" variable from html page, its the even variable
+// it alow me to recover the article the user clicked on by using e.target
 function changeArticle(e){
     var article = document.getElementById('article')
     // this line of code is used to removed all the actual content
-    // i could use the .remove() function from JS library but like this it's a lot faster to code
+    // I could use the .remove() function from JS library but like this it's a lot faster to code
     article.innerHTML = ''
     var target = e.target
     var index = returnIndexFromId(target.id)
     var newArticleView = createNewArticle(index)
     article.appendChild(newArticleView)
-    // here i select the actual link selected to add "active" to the class
+    // here I focus the actual link selected to add "active" to the class and remove it from the others
     var actions = document.getElementById('actions').children
     for (let i = 0; i < actions.length; i++){
         // i+1 because we start the selection into the table from 0 but my id into 
@@ -28,10 +30,10 @@ function changeArticle(e){
     }
 }
 
-// this function delete the content of the actual article to create a new one
+// this create a new article and push it into te DOM of the article tag, it return a element from an index
 function createNewArticle(index){
     // i use a switch, it's clearly not the best way to do, but actualy this
-    // site is static, i will not implement more content
+    // site is static, i will not implement more content, but i could use a for loop or while loop
     switch (index){
         case "1":
             var article = document.createElement('div')
@@ -47,7 +49,6 @@ function createNewArticle(index){
 
             var img = document.createElement('img')
             img.src = "../images/chateau1.JPG"
-            img.style = "border-radius: 25px;"
             img.className = "col"
             img.alt = "image chateau angers"
 
@@ -70,7 +71,6 @@ function createNewArticle(index){
 
             var img = document.createElement('img')
             img.src = "../images/Le_port_Ayrault_d'Angers_en_1848.jpg"
-            img.style = "border-radius: 25px;"
             img.className = "col"
             img.alt = "image port ayrault"
 
@@ -90,7 +90,6 @@ function createNewArticle(index){
 
             var img = document.createElement('img')
             img.src = "../images/ch-angers-maternite-chu-wikimedia.jpg"
-            img.style = "border-radius: 25px;"
             img.className = "col-12"
             img.alt = "image chu angers"
 
