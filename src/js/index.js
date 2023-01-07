@@ -1,18 +1,24 @@
+
+// this function split the id to return only the index
 function returnIndexFromId(id){
     return id.split('-')[1]
 }
 
+// this function is meant to change the view of the article we click 
 function changeArticle(e){
     var article = document.getElementById('article')
+    // this line of code is used to removed all the actual content
+    // i could use the .remove() function from JS library but like this it's a lot faster to code
     article.innerHTML = ''
     var target = e.target
     var index = returnIndexFromId(target.id)
     var newArticleView = createNewArticle(index)
-    console.log(newArticleView)
     article.appendChild(newArticleView)
-
+    // here i select the actual link selected to add "active" to the class
     var actions = document.getElementById('actions').children
     for (let i = 0; i < actions.length; i++){
+        // i+1 because we start the selection into the table from 0 but my id into 
+        // the html document start from 1
         if (i+1 == index){
             actions[i].className = "list-group-item list-group-item-action active"
         }
@@ -22,7 +28,10 @@ function changeArticle(e){
     }
 }
 
+// this function delete the content of the actual article to create a new one
 function createNewArticle(index){
+    // i use a switch, it's clearly not the best way to do, but actualy this
+    // site is static, i will not implement more content
     switch (index){
         case "1":
             var article = document.createElement('div')
@@ -40,6 +49,7 @@ function createNewArticle(index){
             img.src = "../images/chateau1.JPG"
             img.style = "border-radius: 25px;"
             img.className = "col"
+            img.alt = "image chateau angers"
 
             article.appendChild(img)
             article.appendChild(p1)
@@ -62,6 +72,7 @@ function createNewArticle(index){
             img.src = "../images/Le_port_Ayrault_d'Angers_en_1848.jpg"
             img.style = "border-radius: 25px;"
             img.className = "col"
+            img.alt = "image port ayrault"
 
             article.appendChild(p1)
             article.appendChild(img)
@@ -74,13 +85,14 @@ function createNewArticle(index){
             article.className = "paragraphe row justify-content-center"
 
             var p1 = document.createElement('p')
-            p1.className = "col"
+            p1.className = "col-12"
             p1.innerHTML = "La ville se spécialise dorénavant dans les technologies de la santé et plus encore la filière végétale. L'horticulture est l'un des principaux secteurs d'activité de l'économie angevine et était remarquable dès le XIXe siècle comme l'atteste cet extrait d'un document de 1865 : « Si la Touraine a été appelée à juste titre le jardin de la France, on a pu dire non moins de raison que l'Anjou en est la pépinière. Le climat exceptionnel dont jouit cette province, la nature de son sol, la position de sa capitale, (...) en un mot un concours heureux de circonstances naturelles ou économiques, ont beaucoup contribué à étendre et à propager dans ce beau pays un genre de culture dont l'importance s'accroit tous les jours. »84 L'importance de l'horticulture s'est renforcée jusqu'à faire d'Angers le premier pôle horticole d’Europe85. En effet, la ville accueille un pôle de compétitivité à vocation mondiale spécialisé dans le végétal – Végépolys – regroupant 450 chercheurs86. Celui-ci s'appuie d'une part sur le haut niveau de formation et d'études supérieures dispensé dans ce domaine à Angers et d'autre part sur la forte concentration de laboratoires de recherche. On y rencontre ainsi plusieurs écoles spécialisées (ESA, Agrocampus Ouest, etc.), des laboratoires de recherche du CNRS, l’INRA mais aussi la Station nationale d'essais de semences61, Plantes&Cité (le centre technique national sur les espaces verts et le paysage urbain)87 ou encore l'office communautaire des variétés végétales88 dont le rôle est de protéger les nouvelles variétés végétales au sein de l'Union européenne. Enfin, un parc à thème orienté vers le monde du végétal et la biodiversité, Terra Botanica, a été inauguré en 2010"
 
             var img = document.createElement('img')
             img.src = "../images/ch-angers-maternite-chu-wikimedia.jpg"
             img.style = "border-radius: 25px;"
-            img.className = "col"
+            img.className = "col-12"
+            img.alt = "image chu angers"
 
             article.appendChild(p1)
             article.appendChild(img)
