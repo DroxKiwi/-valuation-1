@@ -7,7 +7,7 @@
 ---
 > - src/css
 
-Il contient le fichier ***index.scss*** et les créations automatiques ***index.css.map*** et ***index.css*** que fournit l'outils Live Sass
+Il contient le fichier ***index.scss*** et les créations automatiques ***index.css.map*** et ***index.css*** que fournit l'outil Live Sass
 
 ---
 > - src/html
